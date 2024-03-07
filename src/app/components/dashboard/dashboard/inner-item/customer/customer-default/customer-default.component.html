@@ -20,9 +20,11 @@
 
   <hr>
   <div class="customer-data-wrapper">
+    <form [formGroup]="mform" >
     <div class="search-outer">
-      <input type="text" class="form-control" placeholder="search here">
+      <input type="text"  formControlName="text" class="form-control" placeholder="search here">
     </div>
+    </form>
     <br>
 
     <table class="table table-hover">

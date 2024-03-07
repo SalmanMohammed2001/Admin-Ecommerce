@@ -42,12 +42,22 @@ export type ChartOptions = {
     MatButton,
     NgIf,
     MatPaginator,
-    NgForOf
+    NgForOf,
+    ReactiveFormsModule
   ],
   templateUrl: './customer-default.component.html',
   styleUrl: './customer-default.component.scss'
 })
 export class CustomerDefaultComponent  implements AfterViewInit,OnInit{
+
+
+  mform: FormGroup = new FormGroup({
+    text: new FormControl()
+  });
+
+  // @ts-ignore
+  obs: Subscription ;
+
 
   page:any=0;
   size:any=10;
@@ -143,7 +153,16 @@ export class CustomerDefaultComponent  implements AfterViewInit,OnInit{
   }
 
   ngOnInit(): void {
+    this.obs=this.mform.valueChanges
+      .pipe(debounceTime(1000))
+      .subscribe(data => {
+       this.searchText= data.text
+        this.loadCustomer()
+      });
+
+
     this.loadCustomer();
+
   }
 
   private loadCustomer(){
