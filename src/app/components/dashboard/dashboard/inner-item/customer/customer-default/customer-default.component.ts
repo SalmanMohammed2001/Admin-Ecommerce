@@ -40,7 +40,9 @@ export type ChartOptions = {
   standalone: true,
   imports: [
     MatButton,
-    NgIf
+    NgIf,
+    MatPaginator,
+    NgForOf
   ],
   templateUrl: './customer-default.component.html',
   styleUrl: './customer-default.component.scss'
@@ -148,7 +150,7 @@ export class CustomerDefaultComponent  implements AfterViewInit,OnInit{
       console.log(response.data.data)
       console.log(response.data.count)
       this.dataArray=response.data.data
-      this.count=response.data.data
+      this.count=response.data.count
     })
   }
 

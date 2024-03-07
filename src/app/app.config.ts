@@ -13,5 +13,5 @@ export const appConfig: ApplicationConfig = {
     withInterceptors(
       [httManagerInterceptor]
     )
-  ), provideClientHydration(), provideAnimationsAsync(), provideAnimationsAsync()]
+  ), provideClientHydration(), provideAnimationsAsync(), provideAnimationsAsync(), provideAnimationsAsync()]
 };

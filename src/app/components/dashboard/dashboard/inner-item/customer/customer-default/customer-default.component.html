@@ -36,23 +36,24 @@
       </tr>
       </thead>
       <tbody>
-
-        @for (data of dataArray; track count) {
-          <tr>
+          <tr *ngFor="let data of dataArray">
           <th >{{data.userId}}</th>
           <td>{{data.email}}</td>
           <td>{{data.fullName}}</td>
-          <td><img src="{{data.avatar}}" alt=""></td>
+          <td><img src="{{data.avatarUrl}}" alt=""></td>
           <td>
             <button  mat-raised-button>{{data.status?'Disable':'Enable'}}</button>
           </td>
           </tr>
-        }
-
-
 
       </tbody>
     </table>
+
+    <mat-paginator [length]="count"
+                   [pageSize]="size"
+                   [pageSizeOptions]="[1, 10, 25, 100]"
+                   aria-label="Select page">
+    </mat-paginator>
 
   </div>
 </div>
