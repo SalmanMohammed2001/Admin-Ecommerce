@@ -1,0 +1,58 @@
+
+<div class="main-outer">
+  <h3 class="header-text">Customer Manage</h3>
+
+
+  <div class="chart-outer" id="chart" >
+
+
+<!--    <apx-chart
+      [series]="chartOptions.series!"
+      [chart]="chartOptions.chart!"
+      [xaxis]="chartOptions.xaxis!"
+      [dataLabels]="chartOptions.dataLabels!"
+      [grid]="chartOptions.grid!"
+      [stroke]="chartOptions.stroke!"
+      [title]="chartOptions.title!"
+    ></apx-chart>-->
+
+  </div>
+
+  <hr>
+  <div class="customer-data-wrapper">
+    <div class="search-outer">
+      <input type="text" class="form-control" placeholder="search here">
+    </div>
+    <br>
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th >#Id</th>
+        <th >Email</th>
+        <th >Full Name</th>
+        <th >Avatar</th>
+        <th >Status</th>
+      </tr>
+      </thead>
+      <tbody>
+
+        @for (data of dataArray; track count) {
+          <tr>
+          <th >{{data.userId}}</th>
+          <td>{{data.email}}</td>
+          <td>{{data.fullName}}</td>
+          <td><img src="{{data.avatar}}" alt=""></td>
+          <td>
+            <button  mat-raised-button>{{data.status?'Disable':'Enable'}}</button>
+          </td>
+          </tr>
+        }
+
+
+
+      </tbody>
+    </table>
+
+  </div>
+</div>

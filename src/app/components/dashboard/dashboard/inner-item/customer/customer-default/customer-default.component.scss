@@ -1,0 +1,46 @@
+.main-outer{
+  width: 100%;
+  padding: 50px 15px;
+
+}
+.header-text{
+  color: rgb(211,84,0);
+}
+.chart-outer{
+  width: 100%;
+  height: 400px;
+  border: 1px solid red;
+}
+
+.customer-data-wrapper{
+  width: 100%;
+}
+
+.search-outer{
+  width: inherit;
+  display: flex;
+  justify-content: flex-end;
+
+  input{
+    width: 500px;
+  }
+}
+
+table{
+  tbody{
+    tr{
+      height: 40px;
+    }
+    td{
+      img{
+        width: 35px;
+        height: 35px;
+        border-radius: 100%;
+      }
+    }
+  }
+}
+
+#chart{
+  max-width: 100%;
+}

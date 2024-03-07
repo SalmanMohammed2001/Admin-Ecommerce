@@ -22,6 +22,7 @@ import {
   ReviewDefaultComponent
 } from "./components/dashboard/dashboard/inner-item/review/review-default/review-default.component";
 
+
 export const routes: Routes = [
   {path:'',redirectTo:'dashboard/home',pathMatch:'full'},
   {path:'dashboard',component:DashboardComponent,children:[

@@ -1,0 +1,44 @@
+.outer{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.top{
+  width: 100%;
+  height: 50px;
+
+}
+.bottom{
+  width: 100%;
+  height: 40px;
+
+}
+
+.context{
+  flex: 1;
+  border: 1px solid black;
+  display: flex;
+  overflow: auto;
+
+
+
+}
+
+.left-dev{
+  width: 60px;
+  background-color: #ecf0f1;
+  height: 100%;
+}
+.right-context{
+  flex: 1;
+  overflow:auto;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  border: 1px solid black;
+
+
+}
