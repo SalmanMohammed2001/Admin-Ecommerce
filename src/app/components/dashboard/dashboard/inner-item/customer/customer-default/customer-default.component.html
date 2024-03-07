@@ -50,8 +50,10 @@
     </table>
 
     <mat-paginator [length]="count"
+                   [pageIndex]="page"
                    [pageSize]="size"
                    [pageSizeOptions]="[1, 10, 25, 100]"
+                   (page)="getServerData($event)"
                    aria-label="Select page">
     </mat-paginator>
 

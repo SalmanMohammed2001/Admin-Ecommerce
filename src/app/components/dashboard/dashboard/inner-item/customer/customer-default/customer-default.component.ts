@@ -54,6 +54,7 @@ export class CustomerDefaultComponent  implements AfterViewInit,OnInit{
   searchText:any=''
   dataArray:any=[]
   count=0
+  pageEvent:PageEvent | undefined;
 
   controlsOn: boolean = true;
 
@@ -152,6 +153,11 @@ export class CustomerDefaultComponent  implements AfterViewInit,OnInit{
       this.dataArray=response.data.data
       this.count=response.data.count
     })
+  }
+  getServerData(pageData:PageEvent){
+    this.page=pageData.pageIndex
+    this.size=pageData.pageSize
+    this.loadCustomer()
   }
 
 
