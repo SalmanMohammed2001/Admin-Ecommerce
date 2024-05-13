@@ -6,6 +6,7 @@ import {CookieService} from "ngx-cookie-service";
 })
 export class CookieManagerServiceService {
 
+
   constructor(private cookieService:CookieService) { }
 
   public createToken(value: any) {

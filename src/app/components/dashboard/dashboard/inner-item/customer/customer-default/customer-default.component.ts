@@ -8,7 +8,7 @@ import {CustomersService} from "../../../../../services/customers.service";
 
 
 
-/*
+
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -33,7 +33,7 @@ export type ChartOptions = {
 };
 
 
-*/
+
 
 @Component({
   selector: 'app-customer-default',
@@ -43,12 +43,13 @@ export type ChartOptions = {
     NgIf,
     MatPaginator,
     NgForOf,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgApexchartsModule
   ],
   templateUrl: './customer-default.component.html',
   styleUrl: './customer-default.component.scss'
 })
-export class CustomerDefaultComponent  implements AfterViewInit,OnInit{
+export class CustomerDefaultComponent  implements OnInit{
 
 
   mform: FormGroup = new FormGroup({
@@ -66,91 +67,88 @@ export class CustomerDefaultComponent  implements AfterViewInit,OnInit{
   count=0
   pageEvent:PageEvent | undefined;
 
-  controlsOn: boolean = true;
+  controlsOn: boolean = false;
 
   // @ts-ignore
-/*  @ViewChild("chart") chart: ChartComponent;
+ @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
- constructor() {
-   this.chartOptions = {
-     series: [
-       {
-         name: "Order Count",
-         data: [10, 41, 35, 51, 49, 62, 69, 10, 41, 35, 51, 49,],
-         color: '#8E44AD'
-       }
-     ],
-     chart: {
-       animations: {
-         enabled: true, // Enable animations
-         easing: 'linear', // Specify easing function
-         speed: 1000, // Specify animation speed in milliseconds
-         animateGradually: {
-           enabled: true,
-           delay: 150
-         },
-         dynamicAnimation: {
-           enabled: true,
-           speed: 350
-         }
-       },
-       type: "line",
-       height: 100, // Set height to 100%
-       zoom: {
-         enabled: false
-       },
-       sparkline: {
-         enabled: true
-       },
-       toolbar: {
-         show: false
-       },
 
-     },
-     dataLabels: {
-       enabled: false
-     },
-     stroke: {
-       curve: "smooth",
-       width: 1,
-       colors: ['#8E44AD']
-     },
-     title: {
-       text: "",
-       align: "left"
-     },
-     grid: {
-       show: false
-     },
 
-     xaxis: {
-       categories: [
-         "Jan",
-         "Feb",
-         "Mar",
-         "Apr",
-         "May",
-         "Jun",
-         "Jul",
-         "Aug",
-         "Sep",
-         "Oct",
-         "Nov",
-         "Dec"
-       ]
-     }
-   };
- }
 
-*/
+
 
 
   constructor(private customerService:CustomersService) {
+    this.chartOptions = {
+      series: [
+        {
+          name: "Order Count",
+          data: [10, 41, 35, 51, 49, 62, 69, 10, 41, 35, 51, 49,],
+          color: '#8E44AD'
+        }
+      ],
+      chart: {
+        animations: {
+          enabled: true, // Enable animations
+          easing: 'linear', // Specify easing function
+          speed: 1000, // Specify animation speed in milliseconds
+          animateGradually: {
+            enabled: true,
+            delay: 150
+          },
+          dynamicAnimation: {
+            enabled: true,
+            speed: 350
+          }
+        },
+        type: "area",
+        height: 300, // Set height to 100%
+        zoom: {
+          enabled: false
+        },
+        sparkline: {
+          enabled: true
+        },
+        toolbar: {
+          show: false
+        },
+
+      },
+      dataLabels: {
+        enabled: true
+      },
+      stroke: {
+        curve: "smooth",
+        width: 1,
+        colors: ['#8E44AD']
+      },
+      title: {
+        text: "",
+        align: "left"
+      },
+      grid: {
+        show: false
+      },
+
+      xaxis: {
+        categories: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec"
+        ]
+      }
+    };
   }
 
-  ngAfterViewInit(): void {
-    this.controlsOn = true;
-  }
 
   ngOnInit(): void {
     this.obs=this.mform.valueChanges
@@ -162,7 +160,7 @@ export class CustomerDefaultComponent  implements AfterViewInit,OnInit{
 
 
     this.loadCustomer();
-
+    this.controlsOn = true;
   }
 
   private loadCustomer(){

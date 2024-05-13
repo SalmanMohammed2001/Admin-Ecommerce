@@ -1,12 +1,12 @@
 
-<div class="main-outer">
+<div class="main-outer" *ngIf="controlsOn">
   <h3 class="header-text">Customer Manage</h3>
 
 
   <div class="chart-outer" id="chart" >
 
 
-<!--    <apx-chart
+    <apx-chart
       [series]="chartOptions.series!"
       [chart]="chartOptions.chart!"
       [xaxis]="chartOptions.xaxis!"
@@ -14,7 +14,7 @@
       [grid]="chartOptions.grid!"
       [stroke]="chartOptions.stroke!"
       [title]="chartOptions.title!"
-    ></apx-chart>-->
+    ></apx-chart>
 
   </div>
 

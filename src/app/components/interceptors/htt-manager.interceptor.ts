@@ -38,4 +38,7 @@ export const httManagerInterceptor: HttpInterceptorFn = (req, next) => {
       return throwError(()=>error.error)
     }),
   )
+
+
+
 };
